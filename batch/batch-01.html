@@ -1,0 +1,17 @@
+---
+layout: default
+permalink: /batch-01
+photos:
+- "/assets/img/batch-1-2.png"
+- "/assets/img/batch-1-1.png"
+- "/assets/img/batch-1-5.png"
+- "/assets/img/batch-1-6.png"
+- "/assets/img/batch-1-4.png"
+- "/assets/img/batch-1-7.png"
+---
+<div class="w-100 flex flex-wrap ph3 ph5-ns mv4 mw7">
+  <h1 class="center tc">Ingatan Menjadi Warna</h1>
+  {%- for photo in page.photos -%}
+    <img class="w-100" src="{{ photo | relative_url }}?nf_resize=fit&w=700">
+  {%- endfor -%}
+</div>

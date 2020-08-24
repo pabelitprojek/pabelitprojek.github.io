@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pabelit Project</title>
+  <link rel="stylesheet" href="/assets/main.css" charset="utf-8" />
+</head>
+
+<body>
+ <header class="tc pt4 z-999">
+  <a href="/"><img class="w5-ns w4" src="/assets/logo.png" alt="Pabelit Project">
+  </a>
+  <h1 class="mt2 i b f1">Pabelit Projek</h1>
+  <nav class="tc flex flex-wrap justify-between-ns justify-center mt3 w-60-ns mb0 w-100 center">
+    <a class="w-20-ns w-30 f6 f5-l link black underline-hover h2 v-middle dib" href="/batch-00">Batch 00</a>
+    <a class="w-20-ns w-30 f6 f5-l link black underline-hover h2 v-middle dib" href="/batch-01">Batch 01</a>
+    <a class="w-20-ns w-30 f6 f5-l link black underline-hover h2 v-middle dib" href="/batch-02">Batch 02</a>
+    <a class="w-20-ns w-30 f6 f5-l link black underline-hover h2 v-middle dib" href="/batch-03">Batch 03</a>
+    <a class="w-20-ns w-30 f6 f5-l link black underline-hover h2 v-middle dib" href="/tentang">Tentang Kami</a>
+  </nav>
+</header>
+
+ <main class="center flex justify-center mw7">
+   <div class="mw7 flex flex-wrap ph3 ph5-ns mb4">
+  <img class="w-100 mb6-ns mb5" src="/assets/img/home.jpeg?nf_resize=fit&w=700" alt="Next batch">
+  <a href="https://forms.gle/ozU472Ah6824Fhr9A" class="link button dim br3 ba ph3 pv2 mb6-ns mb5 dib black center f1-ns f2">ORDER HERE</a>
+  <div class="center tc mb6-ns mb5">
+    <div class="countup center" id="countup1">
+      <span>Waktu yang terlewati:</span>
+      <span class="timeel days">00</span>
+      <span class="timeel timeRefDays">hari,</span>
+      <span class="timeel hours">00</span>
+      <span class="timeel timeRefHours">jam,</span>
+      <span class="timeel minutes">00</span>
+      <span class="timeel timeRefMinutes">menit,</span>
+      <span class="timeel seconds">00</span>
+      <span class="timeel timeRefSeconds">detik</span>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  /*
+   * Basic Count Up from Date and Time
+   * Author: @mrwigster / https://guwii.com/bytes/count-date-time-javascript/
+   */
+  window.onload = function() {
+    // Month Day, Year Hour:Minute:Second, id-of-element-container
+    countUpFromTime("Feb 28, 2020 12:00:00", 'countup1'); // ****** Change this line!
+  };
+
+  function countUpFromTime(countFrom, id) {
+    countFrom = new Date(countFrom).getTime();
+    var now = new Date(),
+      countFrom = new Date(countFrom),
+      timeDifference = (now - countFrom);
+
+    var secondsInADay = 60 * 60 * 1000 * 24,
+      secondsInAHour = 60 * 60 * 1000;
+
+    days = Math.floor(timeDifference / (secondsInADay) * 1);
+    hours = Math.floor((timeDifference % (secondsInADay)) / (secondsInAHour) * 1);
+    mins = Math.floor(((timeDifference % (secondsInADay)) % (secondsInAHour)) / (60 * 1000) * 1);
+    secs = Math.floor((((timeDifference % (secondsInADay)) % (secondsInAHour)) % (60 * 1000)) / 1000 * 1);
+
+    var idEl = document.getElementById(id);
+    idEl.getElementsByClassName('days')[0].innerHTML = days;
+    idEl.getElementsByClassName('hours')[0].innerHTML = hours;
+    idEl.getElementsByClassName('minutes')[0].innerHTML = mins;
+    idEl.getElementsByClassName('seconds')[0].innerHTML = secs;
+
+    clearTimeout(countUpFromTime.interval);
+    countUpFromTime.interval = setTimeout(function() {
+      countUpFromTime(countFrom, id);
+    }, 1000);
+  }
+</script>
+
+ </main>
+</body>
+
+</html>
